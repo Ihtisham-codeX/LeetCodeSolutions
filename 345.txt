@@ -1,0 +1,50 @@
+class Solution {
+public:
+    string reverseVowels(string s) { // s = IceCreAm
+        int vowelCount = 0;
+        for(int i = 0 ; i < s.length() ; i++) // i = 0->8
+        {
+            if(isVowel(s[i]))
+            {
+                vowelCount++; // 1
+            }
+        }
+
+        int start = s.length()-1; //7
+        int swapCount = 0;
+        for(int i = 0 ; i < s.length() ; i++)
+        {
+            if(vowelCount/2 == swapCount) break; // 2 = 2
+            if(isVowel(s[i]))
+            {
+                for(int x = start ;  x >= 0 ; x--)
+                {          
+                    if(isVowel(s[x]))
+                    {
+                        char temp = s[x]; 
+                        s[x] = s[i];
+                        s[i] = temp;
+                        swapCount++; //1 ,2
+                        start--;
+                        break;
+                    }
+                    start--; // 6 5 4
+                }
+            }
+        }
+        return s;
+    }
+    bool isVowel(char s)
+    {
+        if
+        (
+            s == 'a' || s == 'A' || s == 'e' || s == 'E' || 
+            s == 'o' || s == 'O' || s == 'u' || s == 'U' ||
+            s == 'i' || s == 'I' 
+        )
+        {
+            return true;
+        }
+        return false; 
+    }
+};

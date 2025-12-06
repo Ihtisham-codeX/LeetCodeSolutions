@@ -1,0 +1,30 @@
+public class Solution {
+    public IList<bool> KidsWithCandies(int[] candies, int extraCandies) 
+    {
+        int size = candies.Length;
+        bool[] result = new bool[size];
+
+        for(int i = 0 ; i < size ; i++)
+        {
+            int n = candies[i];
+            bool status = isGreatest(candies , size , n ,extraCandies );
+            result[i] = status;
+        }
+        return result;
+    }
+    bool isGreatest(int[] candies , int size , int n , int EC)
+    {
+        for(int i = 0 ; i < size ; i++)
+        {
+            if( n+EC < candies[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+// candies = [ 1 , 2 , 3 , 4 , 5 ]
+// kid has 1 candy , 2 has 2 candies and so on.....
+// extraCandies
+// 

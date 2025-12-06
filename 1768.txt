@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) 
+    {
+        string result = "";
+        int i = 0, j = 0;
+
+        while (i < word1.size() && j < word2.size()) 
+        {
+            result += word1[i++];
+            result += word2[j++];
+        }
+        if (i < word1.size()) 
+        {
+            for(int a = i ; a < word1.size(); a++)
+            {
+                result += word1[a];
+            }
+        }
+        if (j < word2.size()) 
+        {
+            for(int a = j ; a < word2.size(); a++)
+            {
+                result += word2[a];
+            }
+        }
+        return result;
+    }
+};
